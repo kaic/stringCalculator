@@ -1,7 +1,14 @@
 const add = (string) => {
 	const reducerSum = (accumulator, currentValue) => accumulator + Number(currentValue);
 
-	let numbersToSum = string.split(',');;
+	let delimiter = ',';
+
+	if(string.slice(0,2) == '//') { 
+		delimiter = string[2];
+		string = string.replace(`//${delimiter}`, '');
+	}
+
+	let numbersToSum = string.split(delimiter);	
 
 	let newNumbersToSum = numbersToSum.map((number, index, array) => { 
 
