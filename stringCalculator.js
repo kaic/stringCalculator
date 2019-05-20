@@ -1,5 +1,8 @@
 const add = (string) => {
-	const reducerSum = (accumulator, currentValue) => accumulator + Number(currentValue);
+	const reducerSum = (accumulator, currentValue) =>  { 
+		if (accumulator < 0) throw "negatives not allowed"
+		return accumulator + Number(currentValue);
+	}
 
 	let delimiter = ',';
 

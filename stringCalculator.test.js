@@ -1,4 +1,4 @@
-const assert = require('assert');
+const assert = require('chai').assert;
 
 const stringCalculator = require('./stringCalculator');
 
@@ -30,8 +30,13 @@ describe('String Calculator', () => {
       const result = stringCalculator.add("//;\n1;2"); 
       assert.equal(result, 3);
     });
-     it('should return 6 when the value is "//k\n1k2k3" - new delimiter', () => {
+    it('should return 6 when the value is "//k\n1k2k3" - new delimiter', () => {
       const result = stringCalculator.add("//k\n1k2k3"); 
       assert.equal(result, 6);
+    });
+    it('should trow an error when the value is "1,-2,3" - no accept negative numbers', () => {
+      const result = () => stringCalculator.add("1,-2,3");
+      const expected = "negatives not allowed"; 
+      assert.throws( result, expected );
     });
  });
