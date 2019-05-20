@@ -1,6 +1,8 @@
 const add = (string) => {
+
+	let negatives = [];
 	const reducerSum = (accumulator, currentValue) =>  { 
-		if (accumulator < 0) throw "negatives not allowed"
+		if (currentValue < 0) negatives.push(currentValue);
 		return accumulator + Number(currentValue);
 	}
 
@@ -31,6 +33,7 @@ const add = (string) => {
 	}, []);
 
 	const result = newNumbersToSum.reduce(reducerSum, 0);
+	if (negatives.length > 0) throw  `Negatives not allowed: ${negatives}`
 
 	return result;
 }

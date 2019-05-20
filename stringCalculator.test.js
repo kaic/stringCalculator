@@ -34,9 +34,14 @@ describe('String Calculator', () => {
       const result = stringCalculator.add("//k\n1k2k3"); 
       assert.equal(result, 6);
     });
-    it('should trow an error when the value is "1,-2,3" - no accept negative numbers', () => {
+    it('should throw an error when the value is "1,-2,3" - no accept negative numbers', () => {
       const result = () => stringCalculator.add("1,-2,3");
-      const expected = "negatives not allowed"; 
+      const expected = "Negatives not allowed: -2"; 
+      assert.throws( result, expected );
+    });
+    it('should throw an error when the value is "-1,-2,-3" - no accept negative numbers and show the negatives numbers on error message', () => {
+      const result = () => stringCalculator.add("-1,-2,-3");
+      const expected = "Negatives not allowed: -1,-2,-3"; 
       assert.throws( result, expected );
     });
  });
