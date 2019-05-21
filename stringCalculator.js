@@ -1,4 +1,7 @@
+let timesAddWasCalled = 0;
+
 const add = (string) => {
+	timesAddWasCalled ++;
 
 	let negatives = [];
 	const reducerSum = (accumulator, currentValue) =>  { 
@@ -38,6 +41,9 @@ const add = (string) => {
 	return result;
 }
 
+const getCalledCount = () => timesAddWasCalled;
+
 module.exports = {
-	add
+	add,
+	getCalledCount
 }

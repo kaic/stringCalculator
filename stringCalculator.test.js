@@ -44,4 +44,10 @@ describe('String Calculator', () => {
       const expected = "Negatives not allowed: -1,-2,-3"; 
       assert.throws( result, expected );
     });
+    it('GetCalledCount() should return how many times Add() method was called', () => {
+      const count = stringCalculator.getCalledCount();
+      assert.equal( count, 9 );
+    });
  });
+
+//GetCalledCount
