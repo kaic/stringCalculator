@@ -48,6 +48,10 @@ describe('String Calculator', () => {
       const count = stringCalculator.getCalledCount();
       assert.equal( count, 9 );
     });
+    it('should ignore numbers bigger than 1000 - "1,1000,1500,2" = 3', () => {
+      const result = stringCalculator.add("1,1000,1500,2"); 
+      assert.equal(result, 3);
+    });
  });
 
 //GetCalledCount

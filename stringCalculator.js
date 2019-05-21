@@ -6,7 +6,8 @@ const add = (string) => {
 	let negatives = [];
 	const reducerSum = (accumulator, currentValue) =>  { 
 		if (currentValue < 0) negatives.push(currentValue);
-		return accumulator + Number(currentValue);
+		if (currentValue < 1000) return accumulator + Number(currentValue);
+		else return accumulator
 	}
 
 	let delimiter = ',';
